@@ -1,13 +1,13 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL, 
+  baseURL: "https://api.abler.com.br/v1", 
   timeout: 5000, 
 });
 
 api.interceptors.request.use(
   (config) => {
-    const token = process.env.REACT_APP_API_TOKEN; 
+    const token = "REDACTED_TOKEN"; 
     if (token) {
       config.headers['Authorization'] = `Bearer ${token}`;
     }
