@@ -1,0 +1,124 @@
+.page {
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}
+
+/* seção geral do painel */
+.section {
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 !important;
+  background-color: #f5f5f5;
+}
+
+/* conteúdo abaixo do "Confira as vagas" */
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 16px;
+}
+
+.sidebar {
+  width: 100%;
+}
+
+.content {
+  width: 100%;
+}
+
+/* grid das vagas */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  /* let cards size naturally so expanded card doesn't force row height */
+  align-items: start;
+}
+
+/* --- FILTROS --- */
+
+/* Mobile: só os chips aparecem */
+.filtersMobile {
+  display: block !important;
+}
+
+.filtersDesktop {
+  display: none !important;
+}
+
+/* estiliza o FiltersBar quando ele está na sidebar (mobile) */
+.sidebarFilters {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+
+.sidebarFilters button {
+  width: 100%;
+  justify-content: flex-start;
+  border-radius: 8px;
+}
+
+/* Desktop layout */
+@media (min-width: 768px) {
+  .layout {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .sidebar {
+    flex: 0 0 260px;
+    max-width: 260px;
+    padding-right: 1rem;
+  }
+
+  .content {
+    flex: 1 1 auto;
+  }
+
+  /* Desktop: esconde chips e mostra filtros em coluna */
+  .filtersMobile {
+    display: none !important;
+  }
+
+  .filtersDesktop {
+    display: flex !important;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .filterGroup {
+    padding-bottom: 8px;
+  }
+
+  .filterGroupTitle {
+    font: 700 16px/1.3 system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+      sans-serif;
+    color: #111827;
+    margin: 0 0 8px;
+  }
+
+  .filterGroupOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .filterOption {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font: 400 14px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+      sans-serif;
+    color: #374151;
+  }
+
+  .filterOption input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+  }
+}
