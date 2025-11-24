@@ -2,10 +2,7 @@
   width: 100%;
   max-width: 1120px;
   margin: 0 auto;
-  background: var(--surface-card);
-  border: 1px solid #e5e7eb;
   border-radius: calc(var(--radius) + 6px);
-  box-shadow: var(--shadow);
 }
 
 .inner {
@@ -153,10 +150,9 @@
   }
 
   .inner {
-    padding: 40px 50px;
     gap: 60px;
     grid-template-columns: 1fr 1fr;
-    column-gap: 30px;
+    column-gap: 60px;
     align-items: start;
   }
 
