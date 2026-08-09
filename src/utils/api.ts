@@ -1,22 +1,12 @@
 import axios from 'axios';
 
-const api = axios.create({
-  baseURL: "https://api.abler.com.br/v1", 
-  timeout: 5000, 
-});
+const isProduction = process.env.NODE_ENV === 'production';
+const devApiBaseUrl = process.env.REACT_APP_ABLER_PROXY_URL || 'http://localhost:3001/v1';
 
-api.interceptors.request.use(
-  (config) => {
-    const token = "REDACTED_TOKEN"; 
-    if (token) {
-      config.headers['Authorization'] = `Bearer ${token}`;
-    }
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
-  }
-);
+const api = axios.create({
+  baseURL: isProduction ? '/abler-api/v1' : devApiBaseUrl,
+  timeout: 15000,
+});
 
 api.interceptors.response.use(
   (response) => response,
